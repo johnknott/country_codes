@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'test_helper'
 
 # allows override of FILE
@@ -33,6 +34,19 @@ class CountryIsoTranslaterTest < Test::Unit::TestCase
   def test_translate_standard
     assert_equal client.translate_standard("CN", "alpha2", "name"), "China"
     assert_equal client.translate_standard("China", "name", "alpha2"), "CN"
+  end
+
+  def test_translate_standard_insensitive
+    assert_equal client.translate_standard("us", "alpha2", "name"), "United States"
+    assert_equal client.translate_standard("united states", "name", "alpha2"), "US"
+  end
+
+  def test_translate_standard_alternatives
+    assert_equal client.translate_standard("England", "name", "alpha2"), "GB"
+  end
+
+  def test_translate_standard_alternatives_insensitive
+    assert_equal client.translate_standard("great britain", "name", "alpha2"), "GB"
   end
 
   def test_get_iso4217_currency_by_iso3166_alpha2

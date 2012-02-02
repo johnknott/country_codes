@@ -29,9 +29,21 @@ module SunDawg
     end
 
     # O(N) translation from one convention standard to another
+    #def self.translate_standard(s, from_standard, to_standard)
+    #  COUNTRIES.each_pair { |key, value| 
+    #    return value[to_standard] if value[from_standard] == s 
+    #  }
+    #  raise NoCountryError.new("[#{s}] IS NOT VALID")
+    #end
+
     def self.translate_standard(s, from_standard, to_standard)
       COUNTRIES.each_pair { |key, value| 
-        return value[to_standard] if value[from_standard] == s 
+        return value[to_standard] if value[from_standard].upcase == s.upcase 
+        if !value['alternatives'].nil? 
+          value['alternatives'].each { |alternative|
+            return value[to_standard] if alternative.upcase  == s.upcase
+          }
+        end
       }
       raise NoCountryError.new("[#{s}] IS NOT VALID")
     end

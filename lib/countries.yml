@@ -1372,7 +1372,11 @@ GS:
   alpha2: GS
   name: South Georgia and the South Sandwich Islands
   alpha3: SGS
-  currency_iso4217: *gbp
+  currency_iso4217:
+    code: GBP
+    name: Pounds
+    symbol: £
+    unicode_hex: 0xa3
 SD:
   alpha2: SD
   name: Sudan
@@ -1662,6 +1666,8 @@ UA:
 AE:
   alpha2: AE
   name: United Arab Emirates
+  alternatives:
+    - UAE
   alpha3: ARE
   currency_iso4217:
     code: AED
@@ -1669,8 +1675,16 @@ AE:
 GB:
   alpha2: GB
   name: United Kingdom
+  alternatives:
+    - UK
+    - U.K.
+    - Great Britain
+    - England
+    - Scotland
+    - Wales
+    - Northern Ireland
   alpha3: GBR
-  currency_iso4217: &gbp
+  currency_iso4217:
     code: GBP
     name: Pounds
     symbol: £
