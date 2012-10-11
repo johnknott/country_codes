@@ -1,5 +1,10 @@
 US:
   alpha2: US
+  alternatives:
+    - USA
+    - U.S.A.
+    - United States of America
+    - America
   name: United States
   alpha3: USA
   currency_iso4217: &usd
